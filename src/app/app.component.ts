@@ -133,13 +133,12 @@ compareVersions(current: string, latest: string): boolean {
       this.navCtrl.navigateRoot('login');
     }
     else{
+      let valReturnFromInfo =  await this.getAppInfo();
+      if(valReturnFromInfo==1){
+        await this.storage.clear();
+        this.navCtrl.navigateRoot('login');
+      }else
       this.navCtrl.navigateRoot('home');
-      // let valReturnFromInfo =  await this.getAppInfo();
-      // if(valReturnFromInfo==1){
-      //   await this.storage.clear();
-      //   this.navCtrl.navigateRoot('login');
-      // }else
-      // this.navCtrl.navigateRoot('home');
     }
   }
 
